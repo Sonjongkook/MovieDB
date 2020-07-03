@@ -1,0 +1,14 @@
+extends templates/layout
+
+block content
+  h1 #{movie.title}
+  h3 Release year : #{movie.year}
+  h3 Rating : #{movie.rating}
+  p #{movie.synopsis}
+  ul 
+    each genre in movie.genres
+      li #{genre}
+  
+  .edit
+    a(href=`/${movie.id}/edit`) Edit
+    

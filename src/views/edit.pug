@@ -1,0 +1,15 @@
+extends templates/layout
+
+block content
+  h1=pageTitle
+  .form_container
+    form(action=`/${edit_Movie.id}/edit`, method="post")
+      input(type="text", name="title", value=edit_Movie.title , required=true, minlength="3")
+      input(type="number", name="year", value=edit_Movie.year, required=true)
+      input(type="text", name="rating", value=edit_Movie.rating, required=true)
+      textarea(name="synopsis", required=true) #{edit_Movie.synopsis}
+      input(type="text", name="genre", value=edit_Movie.genres.join(","), required=true)
+      input(type="submit", value="Edit Movie")
+
+  .delete
+    a(href=`/${edit_Movie.id}/delete`) Delete
